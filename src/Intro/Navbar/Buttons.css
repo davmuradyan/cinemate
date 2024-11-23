@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Surfing-Capital;
+    src: url(./Surfing-Capital.ttf);
+}
+
+.buttons {
+    height: 95%;
+    width: 200px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    color: white;
+    font-size: 25px;
+    transition: 0.5s;
+    font-family: Surfing-Capital;
+}
+
+.buttons:hover {
+    background-color: rgba(240, 248, 255, 0.247);
+}
+
+.buttonsDiv {
+        display: flex;                /* Enables flexbox layout */
+        justify-content: right;      /* Centers items horizontally */
+        align-items: center;          /* Centers items vertically */
+        top: 0;
+        height: 100%;
+        float: right;
+}
