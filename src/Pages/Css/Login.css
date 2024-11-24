@@ -1,0 +1,94 @@
+.Login {
+    background-image: url('./LoginImg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin-top: 0px;
+}
+
+.Form {
+    width: 400px;
+    height: 350px;
+    background-color: rgb(215, 77, 77);
+    border: 1px;
+    border-radius: 50px;
+    display: grid;
+    justify-content: center;
+    align-items: center; 
+    float: right;
+    margin-top: 10%;
+    margin-right: 15%;
+}
+
+.Input {
+    height: 40px;
+    background-color: rgb(226, 231, 230);
+    border-radius: 25px;
+    border: none;
+    width: 300px;
+    font-size: medium;
+    text-align: center;
+    font-style: normal;
+    outline: none; /* Removes the default focus outline */
+}
+
+/* Add a custom focus style if needed */
+.Input:focus {
+    border: none; /* Custom border on focus */
+    outline: none; /* Ensures the default outline is not shown */
+}
+
+.titleDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    margin: 0;
+    height: 10px;
+    color: rgb(45, 45, 45);
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 50px;
+    width: 100%;
+}
+
+.button {
+    border: none;
+    height: 100%;
+    width: 60%;
+    border-radius: 20px;
+    background-color: brown;
+    color: white;
+    font-size: large;
+}
+
+.button:hover {
+    border: none;
+    height: 100%;
+    width: 60%;
+    border-radius: 20px;
+    background-color: rgb(161, 3, 3);
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: Surfing-Capital;
+    src: url(./../../Intro/Navbar/Surfing-Capital.ttf);
+}
+
+.messageDiv {
+    height: 200px;
+    width: 200;
+    color: rgb(253, 136, 136);
+    font-size: larger;
+    font-family: Surfing-Capital;
+    margin-top: 23%;
+    margin-left: 12%;
+}
