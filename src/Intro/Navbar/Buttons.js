@@ -5,13 +5,17 @@ function Buttons() {
     const navigate = useNavigate(); // Move useNavigate here
 
     const goToLogin = () => {
-        navigate("/login"); // Navigate to login page
+        navigate("/Login"); // Navigate to login page
+    };
+
+    const goToSignUp = () => {
+        navigate("/Signup"); // Navigate to login page
     };
 
     return (
         <div className='buttonsDiv'>
             <button className='buttons' onClick={goToLogin}>Login</button>
-            <button className='buttons'>Sign Up</button>
+            <button className='buttons' onClick={goToSignUp}>Sign Up</button>
         </div>
     );
 }

@@ -5,7 +5,7 @@ function Logo() {
     const navigate = useNavigate();
 
     const goToIntro = () => {
-        navigate("/"); // Navigate to login page
+        navigate("/");
     };
 
     return (
