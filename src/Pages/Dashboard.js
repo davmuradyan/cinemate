@@ -6,7 +6,7 @@ import Posters from '../Dashboard/Posters';
 
 function Dashboard() {
   return (
-    <Posters />
+      <Posters />
   );
 }
 

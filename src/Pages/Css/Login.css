@@ -1,23 +1,27 @@
 .Login {
-    background-image: url('./../../Dashboard/assets/background.jpg');
+    background-image: url('./Login.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     margin-top: 0px;
+    user-select: none; /* Prevents text selection */
+    -webkit-user-select: none; /* For WebKit browsers (e.g., Chrome, Safari) */
+    -moz-user-select: none; /* For Mozilla browsers (e.g., Firefox) */
+    -ms-user-select: none; /* For Internet Explorer */
 }
 
 .Form {
     width: 400px;
     height: 350px;
-    background-color: rgb(215, 77, 77);
+    background-color: rgb(126, 51, 187);
     border: 1px;
     border-radius: 50px;
     display: grid;
     justify-content: center;
     align-items: center; 
     float: right;
-    margin-top: 10%;
-    margin-right: 15%;
+    margin-top: 8%;
+    margin-right: 22%;
 }
 
 .Input {
@@ -47,7 +51,7 @@
 .title {
     margin: 0;
     height: 10px;
-    color: rgb(45, 45, 45);
+    color: rgb(185, 185, 185);
 }
 
 .buttonDiv {

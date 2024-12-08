@@ -5,4 +5,8 @@
     background-position: center;
     align-self: center;
     height: 100vh;
+    user-select: none; /* Prevents text selection */
+    -webkit-user-select: none; /* For WebKit browsers (e.g., Chrome, Safari) */
+    -moz-user-select: none; /* For Mozilla browsers (e.g., Firefox) */
+    -ms-user-select: none; /* For Internet Explorer */
 }
