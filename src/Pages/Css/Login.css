@@ -41,6 +41,7 @@
 .titleDiv {
     display: flex;
     justify-content: center;
+    height: 25px;
 }
 
 .title {
@@ -67,6 +68,16 @@
     font-size: large;
 }
 
+.signInBtn {
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    background-color: brown;
+    color: white;
+    font-size: large;
+}
+
 .button:hover {
     border: none;
     height: 100%;
@@ -77,6 +88,18 @@
     font-size: large;
     cursor: pointer;
 }
+
+.signInBtn:hover {
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgb(161, 3, 3);
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
+
 
 @font-face {
     font-family: Surfing-Capital;
