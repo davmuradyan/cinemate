@@ -7,6 +7,7 @@ import Intro from './Pages/Intro';
 import Dashboard from './Pages/Dashboard';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
+import MovieDetail from './Dashboard/MovieDetail';
 
 const router = createBrowserRouter([{
   path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([{
 {
   path: "/Signup",
   element: <Signup />
+},
+{
+  path: "/MovieDetail/:id",
+  element: <MovieDetail />
 }
 ])
 
