@@ -1,13 +1,19 @@
 /* Entire page layout */
 .movie-detail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    background: linear-gradient(to bottom, #1c1e21, #343a40);
-    color: #fff;
-    min-height: 100vh;
-    font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #1c1e21, #343a40);
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  background-image: url('./assets/background.jpg'); /* Replace with your photo's path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; /* Optional */
   }
   
   /* Main content container */

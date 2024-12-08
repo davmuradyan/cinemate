@@ -1,12 +1,17 @@
 /* General page styling */
 .posters-page {
-    background-color: #1c1c1c;
-    color: #fff;
-    min-height: 100vh;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-  }
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-image: url('./assets/background.jpg'); /* Replace with your photo's path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; /* Optional */
+  min-height: 100vh;
+  color: #fff;
+}
   
   /* Title styling */
   .posters-title {
