@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Posters.css';
+import Navbar from './Navbar';
 
 const API_KEY = '7a435c87dca103b3ffb429b8c6318fba';
 const BASE_URL = `https://api.themoviedb.org/3/movie`;
@@ -33,6 +34,27 @@ const Posters = () => {
     return newPosters;
   };
 
+  const fetchMoviesByName = async (name) => {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(name)}`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const movies = data.results.map((movie) => ({
+          id: movie.id,
+          title: movie.title || 'Unknown Title',
+          posterUrl: movie.poster_path
+            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            : null,
+        }));
+        setPosters(movies);
+      }
+    } catch (error) {
+      console.error('Error fetching movies by name:', error);
+    }
+  };
+
   const loadMorePosters = async () => {
     const startId = currentStartId;
     const endId = currentStartId + postersPerLoad;
@@ -52,6 +74,8 @@ const Posters = () => {
 
   return (
     <div className="posters-page">
+      {/* Replace Navbar here */}
+      <Navbar onSearch={fetchMoviesByName} />
       <h1 className="posters-title">Discover Movies</h1>
       <div className="poster-grid">
         {posters.map((poster) => (

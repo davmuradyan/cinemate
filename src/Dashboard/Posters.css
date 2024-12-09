@@ -1,21 +1,21 @@
 /* General page styling */
 .posters-page {
   min-height: 100vh;
-  padding: 20px;
+  padding: 90px 20px 20px; /* Adjust padding to make room for the fixed navbar */
   text-align: center;
   font-family: 'Arial', sans-serif;
-  background-image: url('./assets/background.jpg'); /* Replace with your photo's path */
+  background-image: url('./assets/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed; /* Optional */
-  min-height: 100vh;
+  background-attachment: fixed;
   color: #fff;
-  user-select: none; /* Prevents text selection */
-    -webkit-user-select: none; /* For WebKit browsers (e.g., Chrome, Safari) */
-    -moz-user-select: none; /* For Mozilla browsers (e.g., Firefox) */
-    -ms-user-select: none; /* For Internet Explorer */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
+
   
   /* Title styling */
   .posters-title {
@@ -85,4 +85,6 @@
   .load-more-button:focus {
     outline: none;
   }
+
+  
   
