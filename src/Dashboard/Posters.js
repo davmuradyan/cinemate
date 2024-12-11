@@ -2,70 +2,64 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Posters.css';
 import Navbar from './Navbar';
+import { fetchPopularMovies } from '../APIrequest/fetchPopularMovies';
+import { fetchMoviesByName } from '../APIrequest/fetchMoviesByName'; // Ensure correct import
 
 const API_KEY = '7a435c87dca103b3ffb429b8c6318fba';
-const BASE_URL = `https://api.themoviedb.org/3/movie`;
 
 const Posters = () => {
   const [posters, setPosters] = useState([]);
-  const [currentStartId, setCurrentStartId] = useState(1);
-  const postersPerLoad = 9;
+  const [isSearching, setIsSearching] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
 
-  const fetchMoviePostersByIdRange = async (startId, endId) => {
-    const newPosters = [];
-    for (let movieId = startId; movieId <= endId; movieId++) {
-      try {
-        const response = await fetch(`${BASE_URL}/${movieId}?api_key=${API_KEY}`);
-        if (response.ok) {
-          const movie = await response.json();
-          if (movie.poster_path) {
-            newPosters.push({
-              id: movieId,
-              title: movie.title || 'Unknown Title',
-              posterUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-            });
-          }
-        }
-      } catch (error) {
-        console.error(`Error fetching movie with ID ${movieId}:`, error);
-      }
-    }
-    return newPosters;
-  };
-
-  const fetchMoviesByName = async (name) => {
+  const loadPopularMovies = async (page = 1) => {
+    setIsSearching(true);
     try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(name)}`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        const movies = data.results.map((movie) => ({
-          id: movie.id,
-          title: movie.title || 'Unknown Title',
-          posterUrl: movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-            : null,
-        }));
-        setPosters(movies);
+      const newPosters = await fetchPopularMovies(API_KEY, page);
+      if (newPosters.length > 0) {
+        setPosters(newPosters);
       }
     } catch (error) {
-      console.error('Error fetching movies by name:', error);
+      console.error('Error fetching popular movies:', error);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  const handleSearch = async (name) => {
+    if (!name) {
+      loadPopularMovies();
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      // Call the fetchMoviesByName function to get search results
+      await fetchMoviesByName(API_KEY, name, setPosters, setIsSearching);
+    } catch (error) {
+      console.error('Error searching for movies:', error);
     }
   };
 
   const loadMorePosters = async () => {
-    const startId = currentStartId;
-    const endId = currentStartId + postersPerLoad;
-
-    const newPosters = await fetchMoviePostersByIdRange(startId, endId);
-    setPosters((prevPosters) => [...prevPosters, ...newPosters]);
-    setCurrentStartId(endId + 1);
+    setIsSearching(true);
+    try {
+      const newPage = currentPage + 1;
+      const newPosters = await fetchPopularMovies(API_KEY, newPage);
+      if (newPosters.length > 0) {
+        setPosters((prevPosters) => [...prevPosters, ...newPosters]);
+        setCurrentPage(newPage);
+      }
+    } catch (error) {
+      console.error('Error fetching more popular movies:', error);
+    } finally {
+      setIsSearching(false);
+    }
   };
 
   useEffect(() => {
-    loadMorePosters();
+    loadPopularMovies();
   }, []);
 
   const handlePosterClick = (id) => {
@@ -74,24 +68,38 @@ const Posters = () => {
 
   return (
     <div className="posters-page">
-      {/* Replace Navbar here */}
-      <Navbar onSearch={fetchMoviesByName} />
-      <h1 className="posters-title">Discover Movies</h1>
-      <div className="poster-grid">
-        {posters.map((poster) => (
-          <div
-            key={poster.id}
-            className="poster-card"
-            onClick={() => handlePosterClick(poster.id)}
+      <Navbar onSearch={handleSearch} />
+      <div className="popular-movies-section">
+        <h1 className="section-title">Popular Movies</h1>
+        <div className="poster-grid">
+          {posters.map((poster) => (
+            <div
+              key={poster.id}
+              className="poster-card"
+              onClick={() => handlePosterClick(poster.id)}
+            >
+              <img src={poster.posterUrl} alt={poster.title} className="poster-image" />
+              <p className="poster-title">{poster.title}</p>
+            </div>
+          ))}
+        </div>
+        {posters.length === 0 && !isSearching && (
+          <p className="no-results">No popular movies found</p>
+        )}
+        <div className="load-more-container">
+          <button
+            onClick={loadMorePosters}
+            className="load-more-button"
+            disabled={isSearching}
           >
-            <img src={poster.posterUrl} alt={poster.title} className="poster-image" />
-            <p className="poster-title">{poster.title}</p>
-          </div>
-        ))}
+            {isSearching ? 'Loading...' : 'Load More'}
+          </button>
+        </div>
       </div>
-      <button onClick={loadMorePosters} className="load-more-button">
-        Load More
-      </button>
+      <div className="movies-for-you-section">
+        <h1 className="section-title">Movies for You</h1>
+        <p>Personalized movies will appear here.</p>
+      </div>
     </div>
   );
 };

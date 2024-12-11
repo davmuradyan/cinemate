@@ -1,4 +1,118 @@
-.Navbar {
+/* General page styling */
+.posters-page {
+    min-height: 100vh;
+    padding: 90px 20px; /* Adjust padding for the navbar */
+    font-family: 'Arial', sans-serif;
+    background-image: url('./assets/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    display: flex; /* Use flexbox for side-by-side layout */
+    flex-direction: row; /* Horizontal alignment */
+    gap: 20px; /* Space between left and right sections */
+  }
+  
+  /* Popular Movies Section (Left) */
+  .popular-movies-section {
+    flex: 1; /* Take half the available width */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Scroll if content exceeds height */
+  }
+  
+  /* Movies for You Section (Right) */
+  .movies-for-you-section {
+    flex: 1; /* Take half the available width */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Scroll if content exceeds height */
+  }
+  
+  /* Section title styling */
+  .section-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ffd700; /* Gold */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  /* Adjustments for posters grid */
+  .poster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  /* Individual poster card */
+  .poster-card {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .poster-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Poster image */
+  .poster-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ffd700;
+  }
+  
+  /* Poster title */
+  .poster-title {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    color: #ffd700; /* Gold */
+  }
+  
+  /* Load more button */
+  .load-more-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #1c1c1c;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .load-more-button:hover {
+    background-color: #e5c100;
+    transform: scale(1.1);
+  }
+  
+  .load-more-button:focus {
+    outline: none;
+  }
+  
+  /* No results message */
+  .no-results {
+    font-size: 18px;
+    color: #ffd700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+  }
+  
+  /* Navbar styling */
+  .Navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,6 +136,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-right: 45px; /* Additional margin for spacing */
   }
   
   .go-back-button:hover {
@@ -29,10 +144,12 @@
     transform: scale(1.05);
   }
   
+  /* Search bar styling */
   .search-bar {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-right: 20px; /* Add margin to create space from the right edge */
   }
   
   .search-bar input {
@@ -40,7 +157,7 @@
     font-size: 16px;
     border: 2px solid #ffd700;
     border-radius: 5px;
-    width: 200px;
+    width: 500px;
     background-color: #2c2c2c;
     color: #fff;
   }

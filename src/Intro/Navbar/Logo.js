@@ -1,15 +1,15 @@
 import './Logo.css'
 import { useNavigate } from 'react-router-dom';
 
-function Logo() {
+function Logo({goTo}) {
     const navigate = useNavigate();
 
-    const goToIntro = () => {
-        navigate("/");
+    const GoTo = () => {
+        navigate(goTo);
     };
 
     return (
-        <button className='LogoDiv' onClick={goToIntro}>CineMate</button>
+        <button className='LogoDiv' onClick={GoTo}>CineMate</button>
     )
 }
 
