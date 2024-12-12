@@ -19,4 +19,3 @@ export async function fetchMoviePostersByIdRange(API_KEY, BASE_URL, startId, end
     }
     return newPosters;
   }
-  

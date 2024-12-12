@@ -8,18 +8,17 @@ function Like({id}) {
 
     const addLike = () => {
         setLike(true)
-        addMovie(id, like)
+        addMovie(id, true)
     }
 
     const addDis = () => {
         setLike(false)
-        addMovie(id, like)
+        addMovie(id, false)
     }
 
     return (
         <div className="Like">
-            <button className="LikeBtn" onClick={addLike}>
-                Like</button> {/* Use an arrow function */}
+            <button className="LikeBtn" onClick={addLike}>Like</button>
             <button className="DislikeBtn" onClick={addDis}>Dislike</button>
         </div>
     );
