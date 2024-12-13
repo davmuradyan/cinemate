@@ -1,27 +1,42 @@
-import { useState } from "react";
-import { addMovie } from './../APIrequest/AddFilm'; 
-import { use } from "react";
+import React, { useEffect, useState } from "react";
+import "./Like.css";
+import { addMovie } from './../APIrequest/AddFilm';
 
-function Like({id}) {
-    
-    const [like, setLike] = useState(false); // Add const for proper destructuring
+function Like({ id }) {
+  const [liked, setLiked] = useState(false);
 
-    const addLike = () => {
-        setLike(true)
-        addMovie(id, true)
+  useEffect(() => {
+    // Check if the movie is already liked in localStorage
+    const isLiked = localStorage.getItem(`liked-${id}`) === "true";
+    setLiked(isLiked);
+  }, [id]);
+
+  const toggleLike = async () => {
+    const newLikedState = !liked;  // Toggle the like state
+    setLiked(newLikedState);  // Update local state
+
+    // Update the like status in localStorage so it persists
+    localStorage.setItem(`liked-${id}`, newLikedState);
+
+    // Now, call the API to update the backend with the new like status
+    try {
+      await addMovie(id, newLikedState);  // Send the like status to the backend
+    } catch (error) {
+      console.error("Failed to update like status:", error);
+      // Optional: You could handle an error here (e.g., show an error message)
     }
+  };
 
-    const addDis = () => {
-        setLike(false)
-        addMovie(id, false)
-    }
-
-    return (
-        <div className="Like">
-            <button className="LikeBtn" onClick={addLike}>Like</button>
-            <button className="DislikeBtn" onClick={addDis}>Dislike</button>
-        </div>
-    );
+  return (
+    <div className="like-container">
+      <button
+        className={`like-btn ${liked ? "active" : ""}`}
+        onClick={toggleLike}
+      >
+        {liked ? "Liked" : "Like"}
+      </button>
+    </div>
+  );
 }
 
 export default Like;

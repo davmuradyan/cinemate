@@ -1,4 +1,4 @@
-/* Entire page layout */
+/* General styling for the movie detail page */
 .movie-detail {
   display: flex;
   justify-content: center;
@@ -8,149 +8,135 @@
   color: #fff;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
-  min-height: 100vh;
-  background-image: url('./assets/background.jpg'); /* Replace with your photo's path */
+  background-image: url('./assets/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed; /* Optional */
-  }
-  
-  /* Main content container */
-  .movie-detail-content {
-    display: flex;
-    align-items: flex-start;
-    max-width: 1000px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-  }
-  
-  /* Movie poster */
-  .movie-detail-poster {
-    width: 350px;
-    height: auto;
-    border-radius: 12px 0 0 12px;
-    object-fit: cover;
-    display: block;
-  }
-  
-  /* Description area */
-  .movie-detail-description {
-    flex: 1;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  /* Movie title */
-  .movie-detail-description h1 {
-    margin-bottom: 15px;
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffcc00;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Overview paragraph */
-  .movie-detail-description p {
-    margin-bottom: 20px;
-    font-size: 18px;
-    line-height: 1.6;
-  }
-  
-  /* Rating stars container */
-  .movie-detail-rating {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 15px;
-  }
-  
-  /* Stars styling */
-  .star {
-    font-size: 40px;
-    color: #ffd700; /* Gold */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  .star.empty {
-    color: #666; /* Dim gray for empty stars */
-  }
-  
-  /* Add spacing between sections */
-  .movie-detail-description div + div {
-    margin-top: 10px;
-  }
-
-  /* Rating stars container */
-.movie-detail-rating {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  position: relative;
+  background-attachment: fixed;
 }
 
-/* Stars styling */
-.star {
-  font-size: 40px;
-  color: #ffd700; /* Gold */
+/* Main content container */
+.movie-detail-content {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1000px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Movie poster */
+.movie-detail-poster {
+  width: 350px;
+  height: auto;
+  border-radius: 12px 0 0 12px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Description area */
+.movie-detail-description {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Movie title */
+.movie-detail-description h1 {
+  margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffcc00;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Overview paragraph */
+.movie-detail-description p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Movie rating */
+.movie-rating {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Stars container on the right side of "Rating" */
+.stars-container {
+  display: flex;
+  gap: 5px;
+  font-size: 28px;
+}
+
+/* Individual star styling */
+.star {
+  transition: color 0.3s ease;
+}
+
+/* Full star */
+.star.full {
+  color: #ffcc00;
+}
+
+/* Half star */
+.star.half {
+  background: linear-gradient(90deg, #ffcc00 50%, #444 50%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Empty star */
 .star.empty {
-  color: #666; /* Dim gray for empty stars */
+  color: #444;
 }
 
 /* Numeric rating */
-.rating-number {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 20px;
-  color: #ffd700;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  display: inline-block;
+.numeric-rating {
+  font-size: 16px;
+  color: #ffcc00;
+  font-weight: bold;
 }
 
-/* Rating stars container */
-.movie-detail-rating {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-  }
-  
-  /* Stars styling */
-  .star {
-    font-size: 40px;
-    color: #ffd700; /* Gold */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  .star.empty {
-    color: #666; /* Dim gray for empty stars */
-  }
-  
-  /* Numeric rating */
-  .rating-number {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 20px;
-    color: #ffd700;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    display: none; /* Hidden by default */
-  }
-  
+/* Like button container */
+.movie-actions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Like button styling */
+.LikeBtn,
+.DislikeBtn {
+  background-color: #ffcc00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effects for buttons */
+.LikeBtn:hover,
+.DislikeBtn:hover {
+  background-color: #ff9900;
+}
+
+.LikeBtn:focus,
+.DislikeBtn:focus {
+  outline: none;
+}
