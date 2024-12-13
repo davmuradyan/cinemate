@@ -30,6 +30,6 @@ function PopularMovies({posters, handlePosterClick, loadMorePosters, isSearching
         </div>
       </div>
     )
-}
+  }
 
 export default PopularMovies

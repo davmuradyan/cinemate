@@ -8,7 +8,7 @@ export async function GetRecommendations(movieNamesWithYears) {
         },
         body: JSON.stringify({
           movies: movieNamesWithYears, // Send the movie names and years to the Python API
-          n: 10, // Number of recommendations
+          n: 20, // Number of recommendations
         }),
       });
   
@@ -19,7 +19,6 @@ export async function GetRecommendations(movieNamesWithYears) {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Recommendations:', data);
         return data;
       } else {
         console.error('Failed to get recommendations:', response.status, response.statusText);

@@ -72,7 +72,7 @@ const Posters = () => {
     <div className="posters-page">
       <Navbar onSearch={handleSearch} />
       <PopularMovies posters={posters} handlePosterClick={handlePosterClick} loadMorePosters={loadMorePosters} isSearching={isSearching} />
-      <RecommendedMovies />
+      <RecommendedMovies handlePosterClick={handlePosterClick} />
     </div>
   );
 };
