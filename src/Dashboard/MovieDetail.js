@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./MovieDetail.css";
 import Like from "./Like";
 import { fetchMovieDetails } from "../APIrequest/FetchMovieDetails";
+import Navbar from "./Navbar"
 
 const API_KEY = "7a435c87dca103b3ffb429b8c6318fba";
 const BASE_URL = `https://api.themoviedb.org/3/movie`;
@@ -40,6 +41,7 @@ const MovieDetail = () => {
 
   return (
     <div className="movie-detail">
+      <Navbar onSearch={0} withSearch={false} />
       <div className="movie-detail-content">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
