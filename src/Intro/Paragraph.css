@@ -1,0 +1,19 @@
+.ParagraphDiv {
+    width: 700px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    margin-top: 355px;
+    margin-left: 160px;
+    padding: 5px 0px 15px 70px;
+    justify-content: center;
+}
+
+.Paragraph {
+    width: 90%;
+    height: 90%;
+    font-size: 30px;
+    line-height: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
+}
