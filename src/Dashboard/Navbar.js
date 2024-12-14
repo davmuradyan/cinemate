@@ -21,13 +21,21 @@ function Navbar({ onSearch }) {
     onSearch(searchTerm.trim());
   };
 
+  const handleLogoClick = () => {
+    setSearchTerm(''); // Clear the search bar
+    onSearch(''); // Reset the search results
+    navigate('/Dashboard'); // Navigate to the Dashboard or reload the same page
+  };
+
   const handleGoBack = () => {
     navigate(-1); // Navigate to the previous page
   };
 
   return (
     <div className="Navbar">
-        <Logo goTo="/Dashboard"/>   
+      <div onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
+        <Logo />
+      </div>
       <form className="search-bar" onSubmit={handleSearchSubmit}>
         <input
           type="text"

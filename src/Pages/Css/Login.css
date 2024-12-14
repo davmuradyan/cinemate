@@ -13,7 +13,7 @@
 .Form {
     width: 400px;
     height: 350px;
-    background-color: rgb(126, 51, 187);
+    background-color: rgba(58, 21, 111, 0.668);
     border: 1px;
     border-radius: 50px;
     display: grid;
