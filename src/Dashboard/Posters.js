@@ -80,7 +80,7 @@ const Posters = () => {
 
   return (
     <div className="posters-page">
-      <Navbar onSearch={handleSearch} />
+      <Navbar onSearch={handleSearch} withSearch={true}/>
       <PopularMovies
         posters={posters}
         handlePosterClick={handlePosterClick}
