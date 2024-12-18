@@ -64,13 +64,22 @@ const Posters = () => {
   };
 
   useEffect(() => {
-    // Clear localStorage when the app first runs
-    localStorage.removeItem('searchQuery');
-
-    if (!posters.length) {
-      loadPopularMovies();
+    // Check if this is the first run and clear stored queries only once
+    if (!sessionStorage.getItem('initialized')) {
+      localStorage.removeItem('searchQuery');
+      sessionStorage.setItem('initialized', 'true');
     }
-  }, []); // Only run this once when the component mounts
+
+    const savedQuery = localStorage.getItem('searchQuery');
+    if (!posters.length) {
+      if (savedQuery) {
+        setSearchQuery(savedQuery);
+        handleSearch(savedQuery);
+      } else {
+        loadPopularMovies();
+      }
+    }
+  }, [posters]);
 
   const handlePosterClick = (id) => {
     navigate(`/MovieDetail/${id}`);

@@ -18,12 +18,12 @@ function Like({ id }) {
     // Update the like status in localStorage so it persists
     localStorage.setItem(`liked-${id}`, newLikedState);
 
-    // Now, call the API to update the backend with the new like status
+    // Call the API to update the backend with the new like status
     try {
       await addMovie(id, newLikedState);  // Send the like status to the backend
     } catch (error) {
       console.error("Failed to update like status:", error);
-      // Optional: You could handle an error here (e.g., show an error message)
+     
     }
   };
 
