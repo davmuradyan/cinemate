@@ -41,7 +41,7 @@ const MovieDetail = () => {
 
   return (
     <div className="movie-detail">
-      <Navbar onSearch={0} withSearch={false} />
+      
       <div className="movie-detail-content">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

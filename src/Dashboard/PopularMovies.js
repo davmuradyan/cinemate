@@ -7,10 +7,14 @@ function PopularMovies({posters, handlePosterClick, loadMorePosters, isSearching
         <div className="poster-grid">
           {posters.map((poster) => (
             <div
-              key={poster.id}
-              className="poster-card"
-              onClick={() => handlePosterClick(poster.id)}
-            >
+            key={poster.id}
+            className="poster-card"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent default behavior
+              handlePosterClick(poster.id);
+            }}
+          >
+          
               <img src={poster.posterUrl} alt={poster.title} className="poster-image" />
               <p className="poster-title">{poster.title}</p>
             </div>

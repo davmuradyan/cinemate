@@ -64,15 +64,16 @@ const Posters = () => {
   };
 
   useEffect(() => {
-    // Check if there was a saved search query in localStorage when the component mounts
     const savedQuery = localStorage.getItem('searchQuery');
-    if (savedQuery) {
-      setSearchQuery(savedQuery);
-      handleSearch(savedQuery);  // Perform the search using the saved query
-    } else {
-      loadPopularMovies();
+    if (!posters.length) { // Avoid reloading if posters already exist
+      if (savedQuery) {
+        setSearchQuery(savedQuery);
+        handleSearch(savedQuery);
+      } else {
+        loadPopularMovies();
+      }
     }
-  }, []);
+  }, [posters]);
 
   const handlePosterClick = (id) => {
     navigate(`/MovieDetail/${id}`);
