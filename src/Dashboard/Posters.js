@@ -13,7 +13,7 @@ const Posters = () => {
   const [posters, setPosters] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');  // New state for search query
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   const loadPopularMovies = async (page = 1) => {
@@ -36,8 +36,8 @@ const Posters = () => {
       return;
     }
 
-    setSearchQuery(name);  // Save the search query
-    localStorage.setItem('searchQuery', name); // Save to localStorage
+    setSearchQuery(name);
+    localStorage.setItem('searchQuery', name);
 
     setIsSearching(true);
     try {
@@ -64,16 +64,13 @@ const Posters = () => {
   };
 
   useEffect(() => {
-    const savedQuery = localStorage.getItem('searchQuery');
-    if (!posters.length) { // Avoid reloading if posters already exist
-      if (savedQuery) {
-        setSearchQuery(savedQuery);
-        handleSearch(savedQuery);
-      } else {
-        loadPopularMovies();
-      }
+    // Clear localStorage when the app first runs
+    localStorage.removeItem('searchQuery');
+
+    if (!posters.length) {
+      loadPopularMovies();
     }
-  }, [posters]);
+  }, []); // Only run this once when the component mounts
 
   const handlePosterClick = (id) => {
     navigate(`/MovieDetail/${id}`);
@@ -81,7 +78,7 @@ const Posters = () => {
 
   return (
     <div className="posters-page">
-      <Navbar onSearch={handleSearch} withSearch={true}/>
+      <Navbar onSearch={handleSearch} withSearch={true} />
       <PopularMovies
         posters={posters}
         handlePosterClick={handlePosterClick}
