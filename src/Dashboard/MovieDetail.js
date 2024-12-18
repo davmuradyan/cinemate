@@ -4,6 +4,7 @@ import "./MovieDetail.css";
 import Like from "./Like";
 import { fetchMovieDetails } from "../APIrequest/FetchMovieDetails";
 import Navbar from "./Navbar"
+import NavbarDetails from "./NavBarDetails";
 
 const API_KEY = "7a435c87dca103b3ffb429b8c6318fba";
 const BASE_URL = `https://api.themoviedb.org/3/movie`;
@@ -39,9 +40,9 @@ const MovieDetail = () => {
 
   const stars = renderStars(rating);
 
-  return (
+  return (<div>
+    < NavbarDetails />
     <div className="movie-detail">
-      
       <div className="movie-detail-content">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -70,6 +71,8 @@ const MovieDetail = () => {
         </div>
       </div>
     </div>
+  </div>
+    
   );
 };
 
